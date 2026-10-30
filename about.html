@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درباره ما | شبکه ننوتو</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nano: {
+                            dark: '#0f0f13',
+                            darker: '#08080b',
+                            card: '#18181f',
+                            red: '#e11d48',
+                            yellow: '#facc15',
+                            accent: '#f43f5e'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Vazirmatn', Tahoma, sans-serif; }
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            background: rgba(15, 15, 19, 0.85);
+        }
+    </style>
+</head>
+<body class="bg-nano-dark text-white min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 right-0 left-0 z-50 nav-blur border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-nano-yellow to-nano-red flex items-center justify-center font-bold text-lg text-black">ن</div>
+                <span class="font-bold text-lg">شبکه ننوتو</span>
+            </a>
+            <div class="hidden md:flex items-center gap-6 text-sm">
+                <a href="index.html" class="hover:text-nano-yellow transition">خانه</a>
+                <a href="archive.html" class="hover:text-nano-yellow transition">آرشیو میم‌ها</a>
+                <a href="about.html" class="text-nano-yellow font-medium">درباره ما</a>
+                <a href="submit.html" class="hover:text-nano-yellow transition">ارسال سوژه</a>
+                <a href="ads.html" class="hover:text-nano-yellow transition">تبلیغات</a>
+                <a href="links.html" class="hover:text-nano-yellow transition">همه لینک‌ها</a>
+            </div>
+            <a href="https://eitaa.com/nanoto_tv" target="_blank" class="bg-nano-red hover:bg-rose-600 text-white text-sm font-medium px-4 py-2 rounded-full transition">عضویت در کانال</a>
+        </div>
+    </nav>
+
+    <main class="pt-28 pb-16 px-4 max-w-3xl mx-auto">
+        <div class="text-center mb-12">
+            <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-nano-yellow to-nano-red flex items-center justify-center text-3xl font-black text-black mb-6">ن</div>
+            <h1 class="text-3xl md:text-4xl font-black mb-4">درباره شبکه ننوتو</h1>
+            <p class="text-nano-yellow text-lg">منبع اخبار مهمی که هیچ اهمیتی ندارند</p>
+        </div>
+
+        <div class="space-y-8 text-gray-300 leading-relaxed">
+            <section class="bg-nano-card rounded-2xl p-6 border border-white/5">
+                <h2 class="text-xl font-bold text-white mb-3">ما کی هستیم؟</h2>
+                <p>
+                    ننوتو یه کانال طنز و پارودیه. ما اخبار مهم دنیا رو می‌گیریم، بی‌اهمیتشون می‌کنیم، روشون میم می‌سازیم و با طنز سیاه به همه چیز می‌خندیم.
+                    از ترامپ و تنگه هرمز گرفته تا شاهزاده و گزارشگر ننوتو — هیچ‌چیزی از دستمون در نمی‌ره.
+                </p>
+            </section>
+
+            <section class="bg-nano-card rounded-2xl p-6 border border-white/5">
+                <h2 class="text-xl font-bold text-white mb-3">ماموریت ما</h2>
+                <p>
+                    ماموریت ما ساده است: اخبار مهم رو بی‌اهمیت کنیم تا مردم یه لحظه از جدیت زندگی فاصله بگیرن و بخندن.
+                    ما نه خبرگزاری هستیم، نه رسانه رسمی. فقط یه گروه هستیم که با شوخی و کنایه، واقعیت‌های تلخ رو کمی قابل تحمل‌تر می‌کنیم.
+                </p>
+            </section>
+
+            <section class="bg-nano-card rounded-2xl p-6 border border-white/5">
+                <h2 class="text-xl font-bold text-white mb-3">چه محتوایی می‌ذاریم؟</h2>
+                <ul class="list-disc list-inside space-y-2 mr-4">
+                    <li>اخبار جعلی و پارودی سیاسی</li>
+                    <li>میم‌های روز</li>
+                    <li>گزارشگر ننوتو (ویدیوهای کوتاه طنز)</li>
+                    <li>شوخی با شخصیت‌های سیاسی و عمومی</li>
+                    <li>محتوای بی‌اهمیت اما مهم!</li>
+                </ul>
+            </section>
+
+            <section class="bg-nano-card rounded-2xl p-6 border border-white/5">
+                <h2 class="text-xl font-bold text-white mb-3">کانال‌های جانبی</h2>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">🧠</span>
+                        <div>
+                            <div class="font-medium text-white">ننوتراپی</div>
+                            <div class="text-sm text-gray-400">روانشناسی و مشاوره با طعم ننوتو</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">📱</span>
+                        <div>
+                            <div class="font-medium text-white">اپلیکیشن ننوتو</div>
+                            <div class="text-sm text-gray-400">کانال مربوط به اپلیکیشن</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-nano-card rounded-2xl p-6 border border-white/5">
+                <h2 class="text-xl font-bold text-white mb-3">ارتباط با ما</h2>
+                <p class="mb-4">برای ارسال سوژه، گزارش، پیشنهاد یا هماهنگی تبلیغات:</p>
+                <div class="flex flex-wrap gap-3">
+                    <a href="submit.html" class="bg-nano-red hover:bg-rose-600 text-white text-sm font-medium px-4 py-2 rounded-full transition">ارسال سوژه</a>
+                    <a href="ads.html" class="bg-white/10 hover:bg-white/15 border border-white/10 text-sm font-medium px-4 py-2 rounded-full transition">تبلیغات</a>
+                    <a href="links.html" class="bg-white/10 hover:bg-white/15 border border-white/10 text-sm font-medium px-4 py-2 rounded-full transition">همه لینک‌ها</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-10 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-nano-yellow to-nano-red flex items-center justify-center font-bold text-sm text-black">ن</div>
+                    <span class="font-bold">شبکه ننوتو</span>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+                    <a href="index.html" class="hover:text-white">خانه</a>
+                    <a href="archive.html" class="hover:text-white">آرشیو</a>
+                    <a href="about.html" class="hover:text-white">درباره</a>
+                    <a href="submit.html" class="hover:text-white">ارسال سوژه</a>
+                    <a href="ads.html" class="hover:text-white">تبلیغات</a>
+                    <a href="links.html" class="hover:text-white">لینک‌ها</a>
+                </div>
+                <div class="text-xs text-gray-500">
+                    © ۱۴۰۴ شبکه ننوتو — همه حقوق محفوظ است (حتی بی‌اهمیت‌ها)
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

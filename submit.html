@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ارسال سوژه | شبکه ننوتو</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nano: {
+                            dark: '#0f0f13',
+                            darker: '#08080b',
+                            card: '#18181f',
+                            red: '#e11d48',
+                            yellow: '#facc15',
+                            accent: '#f43f5e'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Vazirmatn', Tahoma, sans-serif; }
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            background: rgba(15, 15, 19, 0.85);
+        }
+    </style>
+</head>
+<body class="bg-nano-dark text-white min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 right-0 left-0 z-50 nav-blur border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-nano-yellow to-nano-red flex items-center justify-center font-bold text-lg text-black">ن</div>
+                <span class="font-bold text-lg">شبکه ننوتو</span>
+            </a>
+            <div class="hidden md:flex items-center gap-6 text-sm">
+                <a href="index.html" class="hover:text-nano-yellow transition">خانه</a>
+                <a href="archive.html" class="hover:text-nano-yellow transition">آرشیو میم‌ها</a>
+                <a href="about.html" class="hover:text-nano-yellow transition">درباره ما</a>
+                <a href="submit.html" class="text-nano-yellow font-medium">ارسال سوژه</a>
+                <a href="ads.html" class="hover:text-nano-yellow transition">تبلیغات</a>
+                <a href="links.html" class="hover:text-nano-yellow transition">همه لینک‌ها</a>
+            </div>
+            <a href="https://eitaa.com/nanoto_tv" target="_blank" class="bg-nano-red hover:bg-rose-600 text-white text-sm font-medium px-4 py-2 rounded-full transition">عضویت در کانال</a>
+        </div>
+    </nav>
+
+    <main class="pt-28 pb-16 px-4 max-w-2xl mx-auto">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl md:text-4xl font-black mb-3">ارسال سوژه و گزارش</h1>
+            <p class="text-gray-400">ایده‌هات، میم‌هات یا خبرهای بی‌اهمیتت رو برامون بفرست</p>
+        </div>
+
+        <div class="bg-nano-card rounded-2xl p-6 md:p-8 border border-white/5">
+            <form id="submitForm" class="space-y-5">
+                <div>
+                    <label class="block text-sm font-medium mb-2">نام یا نام مستعار (اختیاری)</label>
+                    <input type="text" name="name" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-nano-red transition" placeholder="مثلاً: گزارشگر ناشناس">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-2">نوع محتوا</label>
+                    <select name="type" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-nano-red transition">
+                        <option value="meme">میم / عکس</option>
+                        <option value="news">خبر جعلی / پارودی</option>
+                        <option value="video">ایده ویدیو / گزارشگر</option>
+                        <option value="other">سایر</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-2">متن سوژه یا ایده *</label>
+                    <textarea name="content" rows="5" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-nano-red transition resize-none" placeholder="ایده‌ت رو کامل بنویس..."></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-2">لینک عکس یا ویدیو (اختیاری)</label>
+                    <input type="url" name="link" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-nano-red transition" placeholder="https://...">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-2">راه ارتباطی (اختیاری)</label>
+                    <input type="text" name="contact" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-nano-red transition" placeholder="آیدی ایتا / تلگرام یا ایمیل">
+                </div>
+
+                <button type="submit" class="w-full bg-nano-red hover:bg-rose-600 text-white font-bold py-3 rounded-xl transition">ارسال سوژه</button>
+            </form>
+
+            <div id="successMsg" class="hidden mt-6 p-4 bg-green-500/20 border border-green-500/30 rounded-xl text-center text-green-300">
+                سوژه‌ت با موفقیت ثبت شد! تیم ننوتو بررسی می‌کنه 🔥
+            </div>
+        </div>
+
+        <div class="mt-8 bg-nano-card/50 rounded-2xl p-5 border border-white/5 text-sm text-gray-400">
+            <p class="font-medium text-white mb-2">نکات مهم:</p>
+            <ul class="list-disc list-inside space-y-1 mr-2">
+                <li>سوژه‌های توهین‌آمیز یا غیراخلاقی بررسی نمی‌شن.</li>
+                <li>بهترین راه ارسال مستقیم از طریق ایتا به <span class="text-nano-yellow">@nanoto_ads</span> هست.</li>
+                <li>اگه سوژه‌ت استفاده بشه، ممکنه اسمت رو ذکر کنیم (با اجازه‌ت).</li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-10 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-nano-yellow to-nano-red flex items-center justify-center font-bold text-sm text-black">ن</div>
+                    <span class="font-bold">شبکه ننوتو</span>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+                    <a href="index.html" class="hover:text-white">خانه</a>
+                    <a href="archive.html" class="hover:text-white">آرشیو</a>
+                    <a href="about.html" class="hover:text-white">درباره</a>
+                    <a href="submit.html" class="hover:text-white">ارسال سوژه</a>
+                    <a href="ads.html" class="hover:text-white">تبلیغات</a>
+                    <a href="links.html" class="hover:text-white">لینک‌ها</a>
+                </div>
+                <div class="text-xs text-gray-500">
+                    © ۱۴۰۴ شبکه ننوتو — همه حقوق محفوظ است (حتی بی‌اهمیت‌ها)
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('submitForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('successMsg').classList.remove('hidden');
+            this.reset();
+            setTimeout(() => {
+                document.getElementById('successMsg').classList.add('hidden');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

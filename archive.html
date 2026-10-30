@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آرشیو میم‌ها | شبکه ننوتو</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nano: {
+                            dark: '#0f0f13',
+                            darker: '#08080b',
+                            card: '#18181f',
+                            red: '#e11d48',
+                            yellow: '#facc15',
+                            accent: '#f43f5e'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Vazirmatn', Tahoma, sans-serif; }
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            background: rgba(15, 15, 19, 0.85);
+        }
+        .post-card {
+            transition: all 0.25s ease;
+        }
+        .post-card:hover {
+            border-color: #e11d48;
+            box-shadow: 0 8px 30px rgba(225, 29, 72, 0.15);
+        }
+        .filter-btn.active {
+            background: #e11d48;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-nano-dark text-white min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 right-0 left-0 z-50 nav-blur border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-nano-yellow to-nano-red flex items-center justify-center font-bold text-lg text-black">ن</div>
+                <span class="font-bold text-lg">شبکه ننوتو</span>
+            </a>
+            <div class="hidden md:flex items-center gap-6 text-sm">
+                <a href="index.html" class="hover:text-nano-yellow transition">خانه</a>
+                <a href="archive.html" class="text-nano-yellow font-medium">آرشیو میم‌ها</a>
+                <a href="about.html" class="hover:text-nano-yellow transition">درباره ما</a>
+                <a href="submit.html" class="hover:text-nano-yellow transition">ارسال سوژه</a>
+                <a href="ads.html" class="hover:text-nano-yellow transition">تبلیغات</a>
+                <a href="links.html" class="hover:text-nano-yellow transition">همه لینک‌ها</a>
+            </div>
+            <a href="https://eitaa.com/nanoto_tv" target="_blank" class="bg-nano-red hover:bg-rose-600 text-white text-sm font-medium px-4 py-2 rounded-full transition">عضویت در کانال</a>
+        </div>
+    </nav>
+
+    <main class="pt-28 pb-16 px-4 max-w-5xl mx-auto">
+        <div class="mb-10">
+            <h1 class="text-3xl md:text-4xl font-black mb-3">آرشیو میم‌ها و پست‌ها</h1>
+            <p class="text-gray-400">بهترین و بی‌اهمیت‌ترین اخبار و میم‌های ننوتو</p>
+        </div>
+
+        <!-- Filters -->
+        <div class="flex flex-wrap gap-2 mb-8">
+            <button class="filter-btn active px-4 py-2 rounded-full text-sm bg-white/10 border border-white/10" data-filter="all">همه</button>
+            <button class="filter-btn px-4 py-2 rounded-full text-sm bg-white/10 border border-white/10 hover:bg-white/15" data-filter="سیاسی">سیاسی</button>
+            <button class="filter-btn px-4 py-2 rounded-full text-sm bg-white/10 border border-white/10 hover:bg-white/15" data-filter="گزارشگر">گزارشگر ننوتو</button>
+            <button class="filter-btn px-4 py-2 rounded-full text-sm bg-white/10 border border-white/10 hover:bg-white/15" data-filter="تاریخی">تاریخی</button>
+            <button class="filter-btn px-4 py-2 rounded-full text-sm bg-white/10 border border-white/10 hover:bg-white/15" data-filter="نظامی">نظامی</button>
+            <button class="filter-btn px-4 py-2 rounded-full text-sm bg-white/10 border border-white/10 hover:bg-white/15" data-filter="طنز">طنز خالص</button>
+        </div>
+
+        <!-- Search -->
+        <div class="mb-8">
+            <input type="text" id="searchInput" placeholder="جستجو در آرشیو..." class="w-full bg-nano-card border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-nano-red transition">
+        </div>
+
+        <!-- Posts Grid -->
+        <div id="postsGrid" class="grid md:grid-cols-2 gap-5">
+            <!-- Posts will be rendered by JS -->
+        </div>
+
+        <div class="text-center mt-10">
+            <button class="bg-white/10 hover:bg-white/15 border border-white/10 px-6 py-3 rounded-full text-sm transition">بارگذاری بیشتر</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-10 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-nano-yellow to-nano-red flex items-center justify-center font-bold text-sm text-black">ن</div>
+                    <span class="font-bold">شبکه ننوتو</span>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+                    <a href="index.html" class="hover:text-white">خانه</a>
+                    <a href="archive.html" class="hover:text-white">آرشیو</a>
+                    <a href="about.html" class="hover:text-white">درباره</a>
+                    <a href="submit.html" class="hover:text-white">ارسال سوژه</a>
+                    <a href="ads.html" class="hover:text-white">تبلیغات</a>
+                    <a href="links.html" class="hover:text-white">لینک‌ها</a>
+                </div>
+                <div class="text-xs text-gray-500">
+                    © ۱۴۰۴ شبکه ننوتو — همه حقوق محفوظ است (حتی بی‌اهمیت‌ها)
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const posts = [
+            {
+                id: 1,
+                text: "ضرب‌الاجل هفت روزه آمریکا برای بازگشایی تنگه هرمز امروز تموم میشه",
+                quote: "ترامپ: ایران به نفعشه که امروز تنگه رو باز کنه در غیر این صورت ضربالاجل رو تمدید میکنیم",
+                tags: ["سیاسی", "طنز"],
+                time: "چند ساعت پیش"
+            },
+            {
+                id: 2,
+                text: "۲۹ اکتبر سالروز ورود کوروش بزرگ به بابل...",
+                quote: "که در این روز کوروش بزرگ صرفا یهودیها رو آزاد کرده... اصلا روز کوروش بزرگ نیست، گولتون نزنن 🌹",
+                tags: ["تاریخی", "طنز"],
+                time: "دیروز"
+            },
+            {
+                id: 3,
+                text: "رضا پهلوی:",
+                quote: "نیروهای نظامی همین الان بیان امان نامه بگیرن",
+                tags: ["سیاسی", "پارودی"],
+                time: "۲ روز پیش"
+            },
+            {
+                id: 4,
+                text: "ننوتو از موشک جدید خود بنام «ننوسونیک» رونمایی کرد",
+                quote: "به زودی از این موشک در جنگ علیه آمریکا و اسرائیل استفاده خواهد شد",
+                tags: ["نظامی", "طنز"],
+                time: "۳ روز پیش"
+            },
+            {
+                id: 5,
+                text: "کار زشت امیرحسین زارع با یک آمریکایی",
+                quote: "(ویدیو)",
+                tags: ["گزارشگر", "طنز"],
+                time: "۴ روز پیش"
+            },
+            {
+                id: 6,
+                text: "نحس ترین بازیکن دنیا توپ طلا گرفت ولی پهلوی برنگشت",
+                quote: "",
+                tags: ["طنز", "سیاسی"],
+                time: "۵ روز پیش"
+            },
+            {
+                id: 7,
+                text: "هواپیمای شاهزاده برای ورود به ایران",
+                quote: "",
+                tags: ["سیاسی", "پارودی"],
+                time: "۶ روز پیش"
+            },
+            {
+                id: 8,
+                text: "یک نفتکش عظیم الجثه برای سوخت رسانی به گیاهان زیرآبی ، راهی اعماق دریا شد",
+                quote: "",
+                tags: ["طنز"],
+                time: "۱ هفته پیش"
+            },
+            {
+                id: 9,
+                text: "امروز روز جهانی بز هست",
+                quote: "روز بز مبارک 🐐",
+                tags: ["طنز"],
+                time: "۱ هفته پیش"
+            },
+            {
+                id: 10,
+                text: "انجمن احکام ننوتو :",
+                quote: "زدن بالگرد آپاچی حتی به قصد لذت حرام نمیباشد و مفسده ای ندارد",
+                tags: ["طنز", "نظامی"],
+                time: "۲ هفته پیش"
+            },
+            {
+                id: 11,
+                text: "با اعلام تیم ننوتو:",
+                quote: "آتش بس در سلامت کامل می باشد و هرگونه اخبار و بیانیه راجع به نقض آتش بس، صراحتا تکذیب میشود",
+                tags: ["سیاسی", "طنز"],
+                time: "۲ هفته پیش"
+            },
+            {
+                id: 12,
+                text: "گزارشگر ننوتو",
+                quote: "چرا آب خیسه؟",
+                tags: ["گزارشگر"],
+                time: "۳ هفته پیش"
+            }
+        ];
+
+        const grid = document.getElementById('postsGrid');
+        const searchInput = document.getElementById('searchInput');
+        let currentFilter = 'all';
+
+        function renderPosts(filter = 'all', search = '') {
+            grid.innerHTML = '';
+            const filtered = posts.filter(p => {
+                const matchFilter = filter === 'all' || p.tags.some(t => t.includes(filter) || filter.includes(t));
+                const matchSearch = !search || p.text.includes(search) || (p.quote && p.quote.includes(search));
+                return matchFilter && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '<p class="text-gray-500 col-span-2 text-center py-10">چیزی پیدا نشد 😅</p>';
+                return;
+            }
+
+            filtered.forEach(p => {
+                const article = document.createElement('article');
+                article.className = 'post-card bg-nano-card rounded-2xl p-5 border border-white/5';
+                article.innerHTML = `
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-nano-yellow to-nano-red flex items-center justify-center text-sm font-bold text-black">ن</div>
+                        <div>
+                            <div class="font-medium text-sm">شبکه ننوتو</div>
+                            <div class="text-xs text-gray-500">${p.time}</div>
+                        </div>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-3">${p.text}</p>
+                    ${p.quote ? `<div class="bg-black/40 rounded-xl p-3 text-sm text-gray-300 border border-white/5">${p.quote}</div>` : ''}
+                    <div class="mt-3 flex gap-2 text-xs text-gray-500">
+                        ${p.tags.map(t => `<span class="bg-white/5 px-2 py-1 rounded">${t}</span>`).join('')}
+                    </div>
+                `;
+                grid.appendChild(article);
+            });
+        }
+
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                renderPosts(currentFilter, searchInput.value);
+            });
+        });
+
+        searchInput.addEventListener('input', () => {
+            renderPosts(currentFilter, searchInput.value);
+        });
+
+        renderPosts();
+    </script>
+</body>
+</html>

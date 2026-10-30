@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شبکه ننوتو | منبع اخبار مهمی که هیچ اهمیتی ندارند</title>
+    <meta name="description" content="ننوتو منبع اخبار مهمی که هیچ اهمیتی ندارند. کانال طنز و پارودی ایرانی.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nano: {
+                            dark: '#0f0f13',
+                            darker: '#08080b',
+                            card: '#18181f',
+                            red: '#e11d48',
+                            yellow: '#facc15',
+                            accent: '#f43f5e'
+                        }
+                    },
+                    fontFamily: {
+                        vazir: ['Vazirmatn', 'Tahoma', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Vazirmatn', Tahoma, sans-serif; }
+        .glow-red { box-shadow: 0 0 20px rgba(225, 29, 72, 0.3); }
+        .meme-card:hover { transform: translateY(-4px); }
+        .gradient-text {
+            background: linear-gradient(90deg, #facc15, #e11d48);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            background: rgba(15, 15, 19, 0.85);
+        }
+        .post-card {
+            transition: all 0.25s ease;
+        }
+        .post-card:hover {
+            border-color: #e11d48;
+            box-shadow: 0 8px 30px rgba(225, 29, 72, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-nano-dark text-white min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 right-0 left-0 z-50 nav-blur border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-nano-yellow to-nano-red flex items-center justify-center font-bold text-lg text-black">ن</div>
+                <span class="font-bold text-lg">شبکه ننوتو</span>
+            </a>
+            <div class="hidden md:flex items-center gap-6 text-sm">
+                <a href="index.html" class="text-nano-yellow font-medium">خانه</a>
+                <a href="archive.html" class="hover:text-nano-yellow transition">آرشیو میم‌ها</a>
+                <a href="about.html" class="hover:text-nano-yellow transition">درباره ما</a>
+                <a href="submit.html" class="hover:text-nano-yellow transition">ارسال سوژه</a>
+                <a href="ads.html" class="hover:text-nano-yellow transition">تبلیغات</a>
+                <a href="links.html" class="hover:text-nano-yellow transition">همه لینک‌ها</a>
+            </div>
+            <a href="https://eitaa.com/nanoto_tv" target="_blank" class="bg-nano-red hover:bg-rose-600 text-white text-sm font-medium px-4 py-2 rounded-full transition">عضویت در کانال</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="pt-28 pb-16 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-nano-red/10 via-transparent to-transparent pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto text-center relative">
+            <div class="inline-block mb-6">
+                <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-nano-yellow to-nano-red flex items-center justify-center text-4xl font-black text-black shadow-lg glow-red">ن</div>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black mb-4">شبکه ننوتو</h1>
+            <p class="text-xl md:text-2xl text-nano-yellow font-medium mb-6">منبع اخبار مهمی که هیچ اهمیتی ندارند</p>
+            <p class="text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed">
+                جایی که اخبار مهم رو بی‌اهمیت می‌کنیم، میم می‌سازیم و با طنز سیاه به همه چیز می‌خندیم.
+                از ترامپ تا شاهزاده، از تنگه هرمز تا گزارشگر ننوتو — همه چیز اینجاست.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="https://eitaa.com/nanoto_tv" target="_blank" class="bg-nano-red hover:bg-rose-600 text-white font-bold px-6 py-3 rounded-full transition flex items-center gap-2">
+                    <span>عضویت در ایتا</span>
+                    <span class="text-xs bg-white/20 px-2 py-0.5 rounded">۵۶ هزار+</span>
+                </a>
+                <a href="archive.html" class="bg-white/10 hover:bg-white/15 border border-white/10 font-medium px-6 py-3 rounded-full transition">مشاهده آرشیو</a>
+                <a href="submit.html" class="bg-white/10 hover:bg-white/15 border border-white/10 font-medium px-6 py-3 rounded-full transition">ارسال سوژه</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats -->
+    <section class="max-w-5xl mx-auto px-4 py-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-nano-card rounded-2xl p-5 text-center border border-white/5">
+                <div class="text-3xl font-black text-nano-yellow">۵۶K+</div>
+                <div class="text-sm text-gray-400 mt-1">دنبال‌کننده ایتا</div>
+            </div>
+            <div class="bg-nano-card rounded-2xl p-5 text-center border border-white/5">
+                <div class="text-3xl font-black text-nano-yellow">۱.۱K+</div>
+                <div class="text-sm text-gray-400 mt-1">عکس و میم</div>
+            </div>
+            <div class="bg-nano-card rounded-2xl p-5 text-center border border-white/5">
+                <div class="text-3xl font-black text-nano-yellow">۴۳۰+</div>
+                <div class="text-sm text-gray-400 mt-1">ویدیو</div>
+            </div>
+            <div class="bg-nano-card rounded-2xl p-5 text-center border border-white/5">
+                <div class="text-3xl font-black text-nano-yellow">۸+</div>
+                <div class="text-sm text-gray-400 mt-1">پلتفرم فعال</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Posts (Mock) -->
+    <section class="max-w-5xl mx-auto px-4 py-12">
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-bold">آخرین پست‌ها</h2>
+            <a href="archive.html" class="text-nano-yellow text-sm hover:underline">مشاهده همه ←</a>
+        </div>
+        <div class="grid md:grid-cols-2 gap-5">
+            <!-- Post 1 -->
+            <article class="post-card bg-nano-card rounded-2xl p-5 border border-white/5">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-9 h-9 rounded-full bg-gradient-to-br from-nano-yellow to-nano-red flex items-center justify-center text-sm font-bold text-black">ن</div>
+                    <div>
+                        <div class="font-medium text-sm">شبکه ننوتو</div>
+                        <div class="text-xs text-gray-500">چند ساعت پیش</div>
+                    </div>
+                </div>
+                <p class="text-sm leading-relaxed mb-3">ضرب‌الاجل هفت روزه آمریکا برای بازگشایی تنگه هرمز امروز تموم میشه</p>
+                <div class="bg-black/40 rounded-xl p-3 text-sm text-gray-300 border border-white/5">
+                    ترامپ:<br>
+                    ایران به نفعشه که امروز تنگه رو باز کنه در غیر این صورت ضربالاجل رو تمدید میکنیم
+                </div>
+                <div class="mt-3 flex gap-2 text-xs text-gray-500">
+                    <span class="bg-white/5 px-2 py-1 rounded">سیاسی</span>
+                    <span class="bg-white/5 px-2 py-1 rounded">طنز</span>
+                </div>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="post-card bg-nano-card rounded-2xl p-5 border border-white/5">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-9 h-9 rounded-full bg-gradient-to-br from-nano-yellow to-nano-red flex items-center justify-center text-sm font-bold text-black">ن</div>
+                    <div>
+                        <div class="font-medium text-sm">شبکه ننوتو</div>
+                        <div class="text-xs text-gray-500">دیروز</div>
+                    </div>
+                </div>
+                <p class="text-sm leading-relaxed mb-3">۲۹ اکتبر (مصادف با ۷ آبان) در تاریخ باستان، سالروز ورود کوروش بزرگ به بابل...</p>
+                <div class="bg-black/40 rounded-xl p-3 text-sm text-gray-300 border border-white/5">
+                    که در این روز کوروش بزرگ صرفا یهودیها رو آزاد کرده، و این روز در واقع برای یهودیها روز بزرگیه<br><br>
+                    اصلا روز کوروش بزرگ نیست، گولتون نزنن 🌹
+                </div>
+                <div class="mt-3 flex gap-2 text-xs text-gray-500">
+                    <span class="bg-white/5 px-2 py-1 rounded">تاریخی</span>
+                    <span class="bg-white/5 px-2 py-1 rounded">طنز</span>
+                </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="post-card bg-nano-card rounded-2xl p-5 border border-white/5">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-9 h-9 rounded-full bg-gradient-to-br from-nano-yellow to-nano-red flex items-center justify-center text-sm font-bold text-black">ن</div>
+                    <div>
+                        <div class="font-medium text-sm">شبکه ننوتو</div>
+                        <div class="text-xs text-gray-500">۲ روز پیش</div>
+                    </div>
+                </div>
+                <p class="text-sm leading-relaxed mb-3">رضا پهلوی:</p>
+                <div class="bg-black/40 rounded-xl p-3 text-sm text-gray-300 border border-white/5">
+                    نیروهای نظامی همین الان بیان امان نامه بگیرن
+                </div>
+                <div class="mt-3 flex gap-2 text-xs text-gray-500">
+                    <span class="bg-white/5 px-2 py-1 rounded">سیاسی</span>
+                    <span class="bg-white/5 px-2 py-1 rounded">پارودی</span>
+                </div>
+            </article>
+
+            <!-- Post 4 -->
+            <article class="post-card bg-nano-card rounded-2xl p-5 border border-white/5">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-9 h-9 rounded-full bg-gradient-to-br from-nano-yellow to-nano-red flex items-center justify-center text-sm font-bold text-black">ن</div>
+                    <div>
+                        <div class="font-medium text-sm">شبکه ننوتو</div>
+                        <div class="text-xs text-gray-500">۳ روز پیش</div>
+                    </div>
+                </div>
+                <p class="text-sm leading-relaxed mb-3">ننوتو از موشک جدید خود بنام «ننوسونیک» رونمایی کرد</p>
+                <div class="bg-black/40 rounded-xl p-3 text-sm text-gray-300 border border-white/5">
+                    به زودی از این موشک در جنگ علیه آمریکا و اسرائیل استفاده خواهد شد
+                </div>
+                <div class="mt-3 flex gap-2 text-xs text-gray-500">
+                    <span class="bg-white/5 px-2 py-1 rounded">نظامی</span>
+                    <span class="bg-white/5 px-2 py-1 rounded">طنز</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Related Channels -->
+    <section class="max-w-5xl mx-auto px-4 py-12">
+        <h2 class="text-2xl font-bold mb-6">کانال‌های مرتبط</h2>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <a href="https://eitaa.com/nanotherapy" target="_blank" class="bg-nano-card rounded-2xl p-5 border border-white/5 hover:border-nano-red/40 transition flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center text-2xl">🧠</div>
+                <div>
+                    <div class="font-medium">ننوتراپی</div>
+                    <div class="text-xs text-gray-400">روانشناسی و مشاوره</div>
+                </div>
+            </a>
+            <a href="https://eitaa.com/nanoto_app" target="_blank" class="bg-nano-card rounded-2xl p-5 border border-white/5 hover:border-nano-red/40 transition flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-2xl">📱</div>
+                <div>
+                    <div class="font-medium">اپلیکیشن ننوتو</div>
+                    <div class="text-xs text-gray-400">کانال اپلیکیشن</div>
+                </div>
+            </a>
+            <a href="links.html" class="bg-nano-card rounded-2xl p-5 border border-white/5 hover:border-nano-red/40 transition flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center text-2xl">🔗</div>
+                <div>
+                    <div class="font-medium">همه لینک‌ها</div>
+                    <div class="text-xs text-gray-400">شبکه‌های اجتماعی</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="max-w-4xl mx-auto px-4 py-16 text-center">
+        <div class="bg-gradient-to-br from-nano-red/20 to-nano-yellow/10 rounded-3xl p-10 border border-white/5">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">می‌خوای سوژه بدی یا تبلیغ کنی؟</h2>
+            <p class="text-gray-400 mb-6">سوژه‌هات رو بفرست یا برای هماهنگی تبلیغات با ما در تماس باش</p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="submit.html" class="bg-nano-red hover:bg-rose-600 text-white font-bold px-6 py-3 rounded-full transition">ارسال سوژه</a>
+                <a href="ads.html" class="bg-white/10 hover:bg-white/15 border border-white/10 font-medium px-6 py-3 rounded-full transition">هماهنگی تبلیغات</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-10 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-nano-yellow to-nano-red flex items-center justify-center font-bold text-sm text-black">ن</div>
+                    <span class="font-bold">شبکه ننوتو</span>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+                    <a href="index.html" class="hover:text-white">خانه</a>
+                    <a href="archive.html" class="hover:text-white">آرشیو</a>
+                    <a href="about.html" class="hover:text-white">درباره</a>
+                    <a href="submit.html" class="hover:text-white">ارسال سوژه</a>
+                    <a href="ads.html" class="hover:text-white">تبلیغات</a>
+                    <a href="links.html" class="hover:text-white">لینک‌ها</a>
+                </div>
+                <div class="text-xs text-gray-500">
+                    © ۱۴۰۴ شبکه ننوتو — همه حقوق محفوظ است (حتی بی‌اهمیت‌ها)
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
