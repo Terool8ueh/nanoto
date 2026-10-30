@@ -25,21 +25,90 @@
         }
     </script>
     <style>
-        body { font-family: 'Vazirmatn', Tahoma, sans-serif; }
+        body { font-family: 'Vazirmatn', Tahoma, sans-serif; transition: background-color 0.3s, color 0.3s; }
         .nav-blur {
-            backdrop-filter: blur(12px);
-            background: rgba(15, 15, 19, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        /* Floating navbar animation */
+        #mainNav {
+            animation: navSlideDown 0.5s ease-out;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+        }
+        @keyframes navSlideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        #mainNav.scrolled {
+            box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+        }
+        /* Mobile menu animation */
+        #mobileMenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+        #mobileMenu.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+        /* Theme */
+        :root {
+            --bg: #0f0f13;
+            --bg-card: #18181f;
+            --bg-darker: #08080b;
+            --text: #ffffff;
+            --text-muted: #9ca3af;
+            --border: rgba(255,255,255,0.05);
+            --accent: #e11d48;
+            --yellow: #facc15;
+        }
+        body.light {
+            --bg: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-darker: #f1f5f9;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: rgba(0,0,0,0.08);
+        }
+        body { background-color: var(--bg); color: var(--text); }
+        .bg-nano-dark { background-color: var(--bg) !important; }
+        .bg-nano-card { background-color: var(--bg-card) !important; }
+        .bg-nano-darker { background-color: var(--bg-darker) !important; }
+        .text-gray-400, .text-gray-500 { color: var(--text-muted) !important; }
+        .border-white\/5 { border-color: var(--border) !important; }
+        .nav-blur { background: color-mix(in srgb, var(--bg) 85%, transparent); }
+        body.light .nav-blur { background: rgba(255,255,255,0.9); }
+        body.light .post-card:hover { box-shadow: 0 8px 30px rgba(225, 29, 72, 0.12); }
+        body.light .bg-black\/40 { background: rgba(0,0,0,0.05) !important; }
+        body.light .text-gray-300 { color: #475569 !important; }
+        /* Floating Eitaa button on mobile */
+        .float-eitaa {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 40;
+            animation: floatPulse 2s ease-in-out infinite;
+        }
+        @keyframes floatPulse {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.04); }
+        }
+        @media (min-width: 768px) {
+            .float-eitaa { display: none; }
         }
     </style>
 </head>
-<body class="bg-nano-dark text-white min-h-screen">
+<body class="bg-nano-dark min-h-screen">
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 right-0 left-0 z-50 nav-blur border-b border-white/5">
+    <!-- Navbar - Always Floating -->
+    <nav id="mainNav" class="fixed top-0 right-0 left-0 z-50 nav-blur border-b border-white/5">
         <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-nano-yellow to-nano-red flex items-center justify-center font-bold text-lg text-black">ن</div>
-                <span class="font-bold text-lg">شبکه ننوتو</span>
+            <a href="index.html" class="flex items-center gap-2 shrink-0">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-nano-yellow to-nano-red flex items-center justify-center font-bold text-lg text-black shadow-lg">ن</div>
+                <span class="font-bold text-lg sm:inline">شبکه ننوتو</span>
             </a>
             
             <!-- Desktop Menu -->
@@ -47,45 +116,79 @@
                 <a href="index.html" class="hover:text-nano-yellow transition">خانه</a> <a href="archive.html" class="hover:text-nano-yellow transition">آرشیو میم‌ها</a> <a href="about.html" class="hover:text-nano-yellow transition">درباره ما</a> <a href="submit.html" class="hover:text-nano-yellow transition">ارسال سوژه</a> <a href="ads.html" class="text-nano-yellow font-medium">تبلیغات</a> <a href="links.html" class="hover:text-nano-yellow transition">همه لینک‌ها</a>
             </div>
             
-            <div class="flex items-center gap-3">
-                <a href="https://eitaa.com/nanoto_tv" target="_blank" class="hidden sm:inline-flex bg-nano-red hover:bg-rose-600 text-white text-sm font-medium px-4 py-2 rounded-full transition">عضویت در کانال</a>
+            <div class="flex items-center gap-2">
+                <!-- Theme Toggle -->
+                <button id="themeBtn" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition" title="حالت شب/روز" aria-label="تغییر تم">
+                    <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                
+                <a href="https://eitaa.com/nanoto_tv" target="_blank" rel="noopener" class="hidden sm:inline-flex bg-nano-red hover:bg-rose-600 text-white text-sm font-medium px-4 py-2 rounded-full transition shadow-lg shadow-rose-500/20">عضویت در ایتا</a>
                 
                 <!-- Mobile Hamburger -->
-                <button id="menuBtn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/10 transition" aria-label="منو">
-                    <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                    <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
+                <button id="menuBtn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition" aria-label="منو">
+                    <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
             </div>
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="md:hidden hidden border-t border-white/5 bg-nano-darker">
-            <div class="px-2 py-2">
-                <a href="index.html" class="block py-3 px-4 hover:bg-white/5 transition border-b border-white/5">خانه</a><a href="archive.html" class="block py-3 px-4 hover:bg-white/5 transition border-b border-white/5">آرشیو میم‌ها</a><a href="about.html" class="block py-3 px-4 hover:bg-white/5 transition border-b border-white/5">درباره ما</a><a href="submit.html" class="block py-3 px-4 hover:bg-white/5 transition border-b border-white/5">ارسال سوژه</a><a href="ads.html" class="block py-3 px-4 text-nano-yellow font-medium border-b border-white/5">تبلیغات</a><a href="links.html" class="block py-3 px-4 hover:bg-white/5 transition border-b border-white/5">همه لینک‌ها</a>
-                <a href="https://eitaa.com/nanoto_tv" target="_blank" class="block py-3 px-4 mt-2 bg-nano-red text-center rounded-xl font-medium">عضویت در کانال</a>
+        <div id="mobileMenu" class="md:hidden border-t border-white/5 bg-nano-darker">
+            <div class="px-2 py-1">
+                <a href="index.html" class="block py-3.5 px-4 hover:bg-white/5 dark:hover:bg-black/5 transition">خانه</a><a href="archive.html" class="block py-3.5 px-4 hover:bg-white/5 dark:hover:bg-black/5 transition">آرشیو میم‌ها</a><a href="about.html" class="block py-3.5 px-4 hover:bg-white/5 dark:hover:bg-black/5 transition">درباره ما</a><a href="submit.html" class="block py-3.5 px-4 hover:bg-white/5 dark:hover:bg-black/5 transition">ارسال سوژه</a><a href="ads.html" class="block py-3.5 px-4 text-nano-yellow font-medium">تبلیغات</a><a href="links.html" class="block py-3.5 px-4 hover:bg-white/5 dark:hover:bg-black/5 transition">همه لینک‌ها</a>
+                <a href="https://eitaa.com/nanoto_tv" target="_blank" rel="noopener" class="block py-3.5 px-4 mt-2 mb-2 bg-nano-red text-center rounded-xl font-medium text-white">عضویت در کانال ایتا</a>
             </div>
         </div>
     </nav>
-    
+
+    <!-- Floating Eitaa button (mobile only) -->
+    <a href="https://eitaa.com/nanoto_tv" target="_blank" rel="noopener" class="float-eitaa bg-nano-red text-white font-bold px-6 py-3 rounded-full shadow-xl shadow-rose-500/40 flex items-center gap-2">
+        <span>📢</span>
+        <span>عضویت در ایتا</span>
+    </a>
+
     <script>
+    (function() {
+        // Theme
+        const body = document.body;
+        const themeBtn = document.getElementById('themeBtn');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const saved = localStorage.getItem('nanoto-theme');
+        if (saved === 'light') {
+            body.classList.add('light');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        }
+        themeBtn.addEventListener('click', () => {
+            body.classList.toggle('light');
+            const isLight = body.classList.contains('light');
+            localStorage.setItem('nanoto-theme', isLight ? 'light' : 'dark');
+            sunIcon.classList.toggle('hidden', !isLight);
+            moonIcon.classList.toggle('hidden', isLight);
+        });
+
+        // Mobile menu
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const menuIcon = document.getElementById('menuIcon');
         const closeIcon = document.getElementById('closeIcon');
-        if (menuBtn) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                menuIcon.classList.toggle('hidden');
-                closeIcon.classList.toggle('hidden');
-            });
-        }
+        menuBtn.addEventListener('click', () => {
+            const open = mobileMenu.classList.toggle('open');
+            menuIcon.classList.toggle('hidden', open);
+            closeIcon.classList.toggle('hidden', !open);
+        });
+
+        // Navbar scroll effect
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 20);
+        });
+    })();
     </script>
 
-    <main class="pt-28 pb-16 px-4 max-w-3xl mx-auto">
+<main class="pt-28 pb-16 px-4 max-w-3xl mx-auto">
         <div class="text-center mb-10">
             <h1 class="text-3xl md:text-4xl font-black mb-3">هماهنگی تبلیغات</h1>
             <p class="text-gray-400">تبلیغاتت رو به مخاطبان طنزدوست ننوتو برسون</p>
